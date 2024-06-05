@@ -1,0 +1,47 @@
+openai: 
+  api_key: sk-proj-vqWVe0mhRxn8m9KgdMLLT3BlbkFJnuQcwdyh68jYUX5DYwuw
+# azure:
+#   api_key: REPLACE_WITH_YOUR_AZURE_API_KEY_HERE
+#   base_url: REPLACE_WITH_YOUR_ENDPOINT_HERE
+#   deployment_name: REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE
+#   api_version: "2022-12-01"
+huggingface:
+  token: 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 # required: huggingface token @ https://huggingface.co/settings/tokens
+dev: false
+debug: false
+log_file: logs/debug.log
+model: gpt-4o # currently only support text-davinci-003, gpt-4, we will support more open-source LLMs in the future
+use_completion: false
+inference_mode: hybrid # local, huggingface or hybrid, prefer hybrid
+local_deployment: standard # minimal, standard or full, prefer full
+device: cuda:0 # cuda:id or cpu
+multi_gpu: true
+num_candidate_models: 30
+max_description_length: 100
+proxy: # optional: your proxy server "http://ip:port"
+http_listen:
+  host: 0.0.0.0 # if you use web as the client, please set `http://{LAN_IP_of_the_server}:{port}/` to `BASE_URL` of `web/src/config/index.ts`.
+  port: 5000
+local_inference_endpoint:
+  host: localhost
+  port: 8005
+logit_bias: 
+  parse_task: 0.1
+  choose_model: 5
+tprompt:
+  parse_task: >-
+    #1 مرحلة تخطيط المهام: يمكن للمساعد الذكي تحليل إدخال المستخدم إلى عدة مهام: [{"task": task, "id": task_id, "dep": dependency_task_id, "args": {"text": text or <GENERATED>-dep_id, "image": image_url or <GENERATED>-dep_id, "audio": audio_url or <GENERATED>-dep_id}}]. تشير العلامة الخاصة "<GENERATED>-dep_id" إلى النص أو الصورة أو الصوت المُنشأ في المهمة المعتمد عليها ويجب أن يكون "dep_id" موجوداً في قائمة "dep". يُشير الحقل "dep" إلى معرفات المهام السابقة التي تُعتبر شرطًا مسبقًا والتي تُنشئ موردًا جديدًا تعتمد عليه المهمة الحالية. يجب أن يكون الحقل "args" ضمن ["text", "image", "audio"], ولا شيء آخر. يجب أن يتم اختيار المهمة من الخيارات التالية: "token-classification", "text2text-generation", "summarization", "translation", "question-answering", "sentence-similarity", "object-detection", "image-to-image", "image-to-text", "text-to-image", "image-segmentation", "depth-estimation", "automatic-speech-recognition", "canny-control", "hed-control", "mlsd-control", "normal-control", "openpose-control", "canny-text-to-image", "depth-text-to-image", "hed-text-to-image", "mlsd-text-to-image", "normal-text-to-image", "openpose-text-to-image", "seg-text-to-image", "ai-assistant", "legal-advice", "tourism". قد تكون هناك مهام متعددة من نفس النوع. فكر خطوة بخطوة في جميع المهام اللازمة لحل طلب المستخدم. قم بتحليل أقل عدد ممكن من المهام مع ضمان أن طلب المستخدم يمكن حله. انتبه إلى الترتيب بين المهام والمهام المعتمد عليها. إذا لم يكن من الممكن تحليل إدخال المستخدم، قم بالرد بJSON [] فارغ.
+  choose_model: >-
+    #2 مرحلة اختيار النموذج: بالنظر إلى طلب المستخدم والمهام التي تم تحليلها، يساعد مساعد الذكاء الاصطناعي المستخدم على اختيار نموذج مناسب من قائمة النماذج لتنفيذ طلب المستخدم. يجب على المساعد أن يركز على الوصف الخاص بالنموذج واختيار النموذج الذي لديه الامكانية الأكبر على حل الطلبات والمهام. يفضل استخدام النماذج ذات نقاط نهاية استدلال محلية من أجل السرعة والاستقرار.
+  response_results: >-
+    #3 مرحلة إنشاء الاستجابة: باستخدام سجلات تنفيذ المهمة، يحتاج مساعد الذكاء الاصطناعي إلى وصف العملية واستنتاج النتائج بالتفصيل.
+demos_or_presteps:
+  parse_task: demos/demo_parse_task.json
+  choose_model: demos/demo_choose_model.json
+  response_results: demos/demo_response_results.json 
+prompt:
+  parse_task: قد يحتوي سجل الدردشة [ {{context}} ] على الموارد التي ذكرتها. الآن أقوم بإدخال { {{input}} }. انتبه إلى أنواع الإدخال والإخراج للمهام والمهام التي يعتمد عليها.
+  choose_model: >-
+    الرجاء اختيار النموذج الأنسب من {{metas}} لمهمة {{task}}. يجب أن يكون ناتج الإخراج بتنسيق JSON مثل هذا: {"id": "id"، "reason": "أسبابك التفصيلية لهذا الاختيار"}.
+  response_results: >-
+    يرجى التفكير أولاً بعناية والإجابة مباشرة على طلبي بناءً على نتائج الاستدلال. ثم يرجى ارسال سير العمل الخاص بك بالتفصيل بما في ذلك النماذج المستخدمة ونتائج الاستدلال لطلبي بأسلوب ودي، ويرجى تصفية المعلومات التي ليست ذات صلة بطلبي. أخبرني بالمسار الكامل وعناوين URL للملفات في نتائج الاستدلال. إذا لم يكن هناك شيء في النتائج، من فضلك أخبرني بأنك لا تستطيع تحقيق المهمة.

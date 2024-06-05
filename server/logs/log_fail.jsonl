@@ -1,0 +1,16 @@
+{"input": "\u0644\u0628", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "hi", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "h", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0627\u0647\u0644\u0627", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "h", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0627\u0647\u0644\u0627", "task": "\u0646\u0638\u0631\u064b\u0627 \u0644\u0623\u0646 \u0627\u0644\u0625\u062f\u062e\u0627\u0644 \u0647\u0648 \u0646\u0635 \u0628\u0633\u064a\u0637 \"\u0627\u0647\u0644\u0627\"\u060c \u064a\u0645\u0643\u0646\u0646\u0627 \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0645\u0647\u0645\u0629 \"ai-assistant\" \u0644\u0644\u0631\u062f \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645. \u0625\u0644\u064a\u0643 \u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u0645\u0647\u0627\u0645:\n\n```json\n[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"\u0627\u0647\u0644\u0627\" }}]\n```", "reason": "task parsing fail", "op": "chitchat"}
+{"input": "gf", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0647\u0644\u0627", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0633\u0644\u0627\u0645", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0633\u0644\u0627\u0645", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0647\u0644\u0627", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0645\u0627\u0647\u0630\u0627\u061f ", "task": {"task": "question-answering", "id": 0, "dep": [-1], "args": {"text": "\u0645\u0627\u0647\u0630\u0627\u061f"}}, "reason": "no available models: question-answering", "op": "message"}
+{"input": "\u0645\u0627 \u0647\u0630\u0627 \u061f ", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}
+{"input": "\u0645\u0627 \u0647\u0630\u0627 ", "task": {"task": "question-answering", "id": 0, "dep": [-1], "args": {"text": "\u0645\u0627 \u0647\u0630\u0627\u061f"}}, "reason": "no available models: question-answering", "op": "message"}
+{"input": "\u0645\u0627 \u0627\u0644\u0630\u064a \u062a\u0631\u0627\u0647", "task": "```json\n[]\n```", "reason": "task parsing fail", "op": "chitchat"}
+{"input": "high", "response": "[failed]", "reason": "task parsing fail: empty", "op": "chitchat"}

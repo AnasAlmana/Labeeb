@@ -1,0 +1,110 @@
+[
+    {
+        "role": "user",
+        "content": "أعطيك بعض الصور e1.jpg, e2.png, e3.jpg, ساعدني في عدد الأغنام؟"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"image-to-text\", \"id\": 0, \"dep\": [-1], \"args\": {\"image\": \"e1.jpg\" }}, {\"task\": \"object-detection\", \"id\": 1, \"dep\": [-1], \"args\": {\"image\": \"e1.jpg\" }}, {\"task\": \"visual-question-answering\", \"id\": 2, \"dep\": [1], \"args\": {\"image\": \"<GENERATED>-1\", \"text\": \"How many sheep in the picture\"}} }}, {\"task\": \"image-to-text\", \"id\": 3, \"dep\": [-1], \"args\": {\"image\": \"e2.png\" }}, {\"task\": \"object-detection\", \"id\": 4, \"dep\": [-1], \"args\": {\"image\": \"e2.png\" }}, {\"task\": \"visual-question-answering\", \"id\": 5, \"dep\": [4], \"args\": {\"image\": \"<GENERATED>-4\", \"text\": \"How many sheep in the picture\"}} }}, {\"task\": \"image-to-text\", \"id\": 6, \"dep\": [-1], \"args\": {\"image\": \"e3.jpg\" }},  {\"task\": \"object-detection\", \"id\": 7, \"dep\": [-1], \"args\": {\"image\": \"e3.jpg\" }}, {\"task\": \"visual-question-answering\", \"id\": 8, \"dep\": [7], \"args\": {\"image\": \"<GENERATED>-7\", \"text\": \"كم عدد الأغنام في الصورة\"}}]"},
+    {
+        "role":"user",
+        "content":"انظر إلى /examples/e.jpg، هل يمكنك أن تخبرني كم عدد الأشياء في الصورة؟ أعطني صورة وفيديو مشابه لهذه الصورة."},
+    {
+        "role":"assistant",
+        "content": "[{\"task\": \"image-to-text\", \"id\": 0, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpg\" }}, {\"task\": \"object-detection\", \"id\": 1, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpg\" }}, {\"task\": \"visual-question-answering\", \"id\": 2, \"dep\": [1], \"args\": {\"image\": \"<GENERATED>-1\", \"text\": \"كم عدد الأشياء في الصورة؟\" }}, {\"task\": \"text-to-image\", \"id\": 3, \"dep\": [0], \"args\": {\"text\": \"<GENERATED-0>\" }}, {\"task\": \"image-to-image\", \"id\": 4, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpg\" }}, {\"task\": \"text-to-video\", \"id\": 5, \"dep\": [0], \"args\": {\"text\": \"<GENERATED-0>\" }}]"},
+    {
+        "role":"user",
+        "content":"بعد أن ترى صورة /examples/e.jpeg، هل يمكنك أن تخبرني كم عدد الطلاب في الصورة؟ واشرح الصورة بصوتك."},
+    {
+        "role":"assistant",
+        "content":"{\"task\": \"document-question-answering\", \"id\": 0, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpeg\", \"text\": \"كم عدد الطلاب في الصورة؟\" }}, {\"task\": \"visual-question-answering\", \"id\": 1, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpeg\", \"text\": \"كم عدد الطلاب في الصورة؟\" }}, {\"task\": \"image-to-text\", \"id\": 2, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpg\" }}, {\"task\": \"text-to-speech\", \"id\": 3, \"dep\": [2], \"args\": {\"text\": \"<GENERATED>-2\" }}"},
+    {
+        "role": "user",
+        "content": "بالنظر إلى الصورة /examples/e.jpg، أولاً قم بإنشاء صورة hed، ثم بناءً على صورة hed قم بإنشاء صورة جديدة إلى فتاة تقرأ كتابًا."},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"openpose-control\", \"id\": 0, \"dep\": [-1], \"args\": {\"image\": \"/examples/e.jpg\" }},  {\"task\": \"openpose-text-to-image\", \"id\": 1, \"dep\": [0], \"args\": {\"text\": \"فتاة تقرأ كتابًا\", \"image\": \"<GENERATED>-0\" }}]"},
+    {
+        "role": "user",
+        "content": "من فضلك اعرض لي فيديو وصورة (بناءً على النص) عن 'صبي يجري' وقم بدبلجته."},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"text-to-video\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"صبي يجري\" }}, {\"task\": \"text-to-speech\", \"id\": 1, \"dep\": [-1], \"args\": {\"text\": \"صبي يجري\" }}, {\"task\": \"text-to-image\", \"id\": 2, \"dep\": [-1], \"args\": {\"text\": \"صبي يجري\" }}]"},
+    {
+        "role": "user",
+        "content": "من فضلك اعرض لي نكتة وصورة لقط."},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"conversational\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"من فضلك اعرض لي نكتة عن قط\" }}, {\"task\": \"text-to-image\", \"id\": 1, \"dep\": [-1], \"args\": {\"text\": \"صورة لقط\" }}]"},
+    {
+        "role": "user",
+        "content": "اريد التحدث مع المساعد الذكي"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"المساعد الذكي\" }}]"},
+    {
+        "role": "user",
+        "content": "اريد التحدث مع لبيب صوتيًا"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"التحدث مع لبيب صوتيًا\" }}]"},
+    {
+        "role": "user",
+        "content": "اريد التحدث مع مساعد صوتي"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"التحدث مع مساعد صوتي\" }}]"},
+    {
+        "role": "user",
+        "content": "اريد مساعدة في شاشتي"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"مساعدة في شاشة جهازي\" }}]"},
+    {
+        "role": "user",
+        "content": "اريد اجراء محادثة صوتية"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"ai-assistant\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"اجراء محادثة صوتية\" }}]"},
+    {
+        "role": "user",
+        "content": "ما هي قوانين السعودية"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"قوانين السعودية\" }}]"},
+    {
+        "role": "user",
+        "content": "في القانون ما عقوبة التزوير"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"عقوبة التزوير في القانون\" }}]"},
+    {
+        "role": "user",
+        "content": "لدي قضية احتاج مساعدة فيها"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"احتياج مساعدة في قضية\" }}]"},
+    {
+        "role": "user",
+        "content": "ما هي المادة المتعلقة بالسرقة في النظام السعودي"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"المادة المتعلقة بالسرقة في النظام\" }}]"},
+    {
+        "role": "user",
+        "content": "ما العقوبة المترتبة على مرتكب جريمة احتيال"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"العقوبة المترتبة على مرتكب الاحتيال\" }}]"},
+    {
+        "role": "user",
+        "content": "قام شخص بصناعة خاتم مقلد، هل يعتبر هذا تزوير؟"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"هل صناعة خاتم مقلد يعتبر تزوير\" }}]"},
+    {
+        "role": "user",
+        "content": "هل التزوير يعد جريمة يعاقب عليها القانون"},
+    {
+        "role": "assistant",
+        "content": "[{\"task\": \"legal-question\", \"id\": 0, \"dep\": [-1], \"args\": {\"text\": \"هل التزوير جريمة قانونية\" }}]"}
+]

@@ -1,0 +1,10 @@
+nohup: ignoring input
+Cloning into 'jais-30b-chat-v3'...
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+
+Encountered 1 file(s) that may not have been copied correctly on Windows:
+	pytorch_model-00006-of-00013.bin
+
+See: `git lfs help smudge` for more details.
