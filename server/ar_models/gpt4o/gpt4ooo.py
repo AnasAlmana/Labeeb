@@ -14,7 +14,7 @@ import audioop
 from termcolor import colored
 
 MODEL = "gpt-4o"
-openai.api_key = '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'
+openai.api_key = #OPENAI_KEY
 
 client = OpenAI(api_key="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")
 
